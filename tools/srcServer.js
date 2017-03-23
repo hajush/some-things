@@ -21,7 +21,7 @@ const options = {
 mongoose.connect(mongooseUri, options);
 /* eslint-disable no-console */
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 const PROD = process.env.NODE_ENV === 'production';
 
