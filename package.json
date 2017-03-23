@@ -4,7 +4,7 @@
   "description": "Basic app with mongo, react, webpack, babel",
   "scripts": {
     "start:dev": "npm-run-all --parallel testonly:watch open:src lint:watch",
-    "start": "npm run open:src",
+    "start:prod": "node distserver/tools/srcServer.js",
     "open:src": "babel-node tools/srcServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
@@ -12,7 +12,8 @@
     "testonly": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
     "testonly:watch": "npm run testonly -- --watch",
     "clean": "rimraf static",
-    "build": "NODE_ENV=production webpack --config webpack.config.babel.js"
+    "build": "NODE_ENV=production webpack --config webpack.config.babel.js",
+    "build:server": "babel tools -d distserver/tools --presets es2015 && babel models -d distserver/models && babel routes -d distserver/routes --presets es2015 && babel webpack.config.babel.js webpack.config.dev.js -d distserver && cp index.html distserver"
   },
   "author": "Montana Code School",
   "license": "MIT",
