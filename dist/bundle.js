@@ -24041,7 +24041,7 @@ var ShowThings = function (_React$Component) {
       var things = this.props.things.map(function (thing) {
         return _react2.default.createElement(
           'li',
-          { key: thing.id },
+          { key: thing._id },
           thing.name,
           ' - ',
           thing.weight,
