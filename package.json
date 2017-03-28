@@ -1,6 +1,9 @@
 {
   "name": "some-things",
   "version": "1.0.0",
+  "engines": {
+    "node": "7.7.1"
+  },
   "description": "Basic app with mongo, react, webpack, babel",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -10,10 +13,10 @@
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
     "test": "npm run lint && npm run testonly",
-    "testonly": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
+    "testonly": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\" \"models/*.test.js\"",
     "testonly:watch": "npm run testonly -- --watch",
     "build": "npm run clean && npm run build:webpack && npm run build:server",
-    "clean": "rimraf static distServer",
+    "clean": "rimraf dist distServer",
     "build:webpack": "NODE_ENV='production' webpack --config webpack.config.babel.js",
     "build:server": "babel tools -d distserver/tools --presets es2015 && babel models -d distserver/models && babel routes -d distserver/routes --presets es2015 && babel webpack.config.babel.js webpack.config.dev.js -d distserver"
   },
