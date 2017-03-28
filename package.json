@@ -15,7 +15,7 @@
     "build": "npm run clean && npm run build:webpack && npm run build:server",
     "clean": "rimraf static distServer",
     "build:webpack": "NODE_ENV='production' webpack --config webpack.config.babel.js",
-    "build:server": "babel tools -d distserver/tools --presets es2015 && babel models -d distserver/models && babel routes -d distserver/routes --presets es2015 && babel webpack.config.babel.js webpack.config.dev.js -d distserver && cp index.html distserver"
+    "build:server": "babel tools -d distserver/tools --presets es2015 && babel models -d distserver/models && babel routes -d distserver/routes --presets es2015 && babel webpack.config.babel.js webpack.config.dev.js -d distserver"
   },
   "author": "Montana Code School",
   "license": "MIT",
@@ -25,6 +25,7 @@
     "bootstrap": "^3.3.7",
     "colors": "^1.1.2",
     "express": "^4.15.2",
+    "if-env": "^1.0.0",
     "jquery": "^3.2.1",
     "mongodb-uri": "^0.9.7",
     "mongoose": "^4.9.1",

@@ -73,9 +73,7 @@ if (PROD) {
   app.use(require('webpack-hot-middleware')(compiler));
 }
 
-app.get('*', function (req, res) {
-  res.sendFile(_path2.default.join(__dirname, '../index.html'));
-});
+app.use('/', _express2.default.static('public'));
 
 app.listen(port, function (err) {
   if (err) {
