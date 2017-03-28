@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Basic app with mongo, react, webpack, babel",
   "scripts": {
-    "start": "if [ $NODE_ENV == 'production' ]; then npm run start:prod; else npm run start:dev; fi",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm start:dev",
     "start:dev": "npm-run-all --parallel testonly:watch open:src lint:watch",
     "start:prod": "node distserver/tools/srcServer.js",
     "open:src": "babel-node tools/srcServer.js",
