@@ -25,6 +25,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 const PROD = process.env.NODE_ENV === 'production';
 
+console.log("Our port is " + port);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api', thingsRoute);

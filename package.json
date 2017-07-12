@@ -2,7 +2,7 @@
   "name": "some-things",
   "version": "1.0.0",
   "engines": {
-    "node": "7.7.1"
+    "node": "7.10.1"
   },
   "description": "Basic app with mongo, react, webpack, babel",
   "scripts": {

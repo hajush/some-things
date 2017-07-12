@@ -57,6 +57,8 @@ var port = process.env.PORT || 3000;
 var app = (0, _express2.default)();
 var PROD = process.env.NODE_ENV === 'production';
 
+console.log("Our port is " + port);
+
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 app.use(_bodyParser2.default.json());
 app.use('/api', _thingsRoute2.default);
